@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+    <style>
+        body{
+            text-align: center;
+            font-size: 18pt;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Você é Brasileiro?</h1>
+    País? <input type="text" name="txt" id="txt">
+    <input type="button" value="Enviar" onclick="resposta()">
+    <div id="res">
+        *Primeira letra maiúscula
+
+    </div>
+    <script>
+        function resposta(){
+            var txt1 = window.document.getElementById("txt")
+            var res = window.document.getElementById("res")
+            var pais = txt.value
+            res.innerHTML = `<p>Você mora no ${pais}</p>`
+            
+            if(pais == 'Brasil'){
+                res.innerHTML += `<p>Você é Brasileiro</p>`
+            }else{
+                res.innerHTML += `<p>Você é Estrangeiro</p>`
+            }
+
+        }
+    </script>
+</body>
+</html>
