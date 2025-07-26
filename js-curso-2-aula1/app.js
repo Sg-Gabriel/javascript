@@ -5,21 +5,16 @@ let tentativas = 1;
 
 mensagemInicial()
 
-console.log(listaNumSorteado)
-
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-    responsiveVoice.speak(texto, "Brazilian Portuguese Female", {rate:1.2});
+    responsiveVoice.speak(texto, "Brazilian Portuguese Female", { rate: 1.2 });
 }
 function mensagemInicial() {
     exibirTextoNaTela("h1", "Jogo do número secreto");
     exibirTextoNaTela("p", "Escolha um número entre 1 e " + limiteTentativa);
-    
+
 }
-
-
-console.log(numSecreto)
 
 function verificarChute() {
     let chute = document.querySelector("input").value;
@@ -35,16 +30,16 @@ function verificarChute() {
     }
     else {
         if (chute > numSecreto && chute <= limiteTentativa) {
-            exibirTextoNaTela("h1", `O número secreto é menor do que ${chute}`);
+            exibirTextoNaTela("h1", `O número é menor do que ${chute}`);
         }
         else {
             if (chute < numSecreto && chute != "" && chute > 0) {
-                exibirTextoNaTela("h1", `O número secreto é maior do que ${chute}`);
+                exibirTextoNaTela("h1", `O número é maior do que ${chute}`);
             } else {
-            if (chute > limiteTentativa) {
-                exibirTextoNaTela("h1", "número inválido");
-                exibirTextoNaTela("p", "Escolha um número entre 1 e " + limiteTentativa);
-            } else {
+                if (chute > limiteTentativa) {
+                    exibirTextoNaTela("h1", "número inválido");
+                    exibirTextoNaTela("p", "Escolha um número entre 1 e " + limiteTentativa);
+                } else {
                     exibirTextoNaTela("h1", "Digite um número para jogar");
                     tentativas = 0;
                 }
@@ -68,8 +63,8 @@ function gerarNum() {
     if (listaNumSorteado.includes(numEscolhidoAleatorio)) {
         return gerarNum();
     } else {
-        listaNumSorteado.push(numEscolhidoAleatorio)
-        return numEscolhidoAleatorio
+        listaNumSorteado.push(numEscolhidoAleatorio);
+        return numEscolhidoAleatorio;
     }
 }
 
@@ -84,7 +79,6 @@ function reiniciarJogo() {
     mensagemInicial();
     verificarChute();
     document.getElementById("reiniciar").setAttribute("disabled", true);
-    document.getElementById("chute").removeAttribute("disabled")
+    document.getElementById("chute").removeAttribute("disabled");
 
-    console.log(numSecreto);
 }
